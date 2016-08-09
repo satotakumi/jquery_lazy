@@ -1,7 +1,7 @@
 !(function($, window, document) {
     var $window = $(window);
 
-    $.fn.lazyRequest = function(options) {
+    $.fn.lazy = function(options) {
         var elements = this;
 
         $window.on("resize", function() {
@@ -24,12 +24,7 @@
 
             $self.one("appear", function() {
                 if (!this.requested) {
-                    var impressionId = $self.attr('data-iid');
-                    var adId = $self.attr('data-aid');
-                    post({
-                        impression_id: impressionId,
-                        ad_id: adId,
-                    });
+                    // TODO: after appear
                     self.requested = true;
                 }
             });
@@ -44,18 +39,8 @@
         function update() {
             elements.each(function() {
                 var $this = $(this);
-                if ($window.scrollTop() >= Math.floor($this.offset().top)) {
-                     $this.trigger("appear");
-                }
+                // TODO: Write someting
             })
-        }
-
-        function post(params) {
-            $.ajax({
-                type: 'POST',
-                url: '/0/views',
-                data: params
-            });
         }
 
         return this;
