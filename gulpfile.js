@@ -14,7 +14,7 @@ gulp.task('build', function() {
     '',
     ''].join('\n');
 
-    gulp.src('jquery.lazy.js')
+    gulp.src('src/jquery.lazy.js')
         .pipe($.header(banner, { pkg: pkg }))
         .pipe(gulp.dest('dist'))
         .pipe($.uglify())
