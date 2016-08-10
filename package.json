@@ -1,0 +1,27 @@
+{
+  "name": "jquery_lazy",
+  "version": "0.0.1",
+  "description": "jQuery plugin for lazy doing something",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sotayamashita/jquery_lazy.git"
+  },
+  "author": "Sota Yamashita",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sotayamashita/jquery_lazy/issues"
+  },
+  "homepage": "https://github.com/sotayamashita/jquery_lazy#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-header": "^1.8.7",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0"
+  }
+}
