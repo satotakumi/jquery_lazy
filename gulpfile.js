@@ -1,6 +1,7 @@
 'use strict';
 
 var gulp = require('gulp');
+var browserSync = require('browser-sync').create();
 var $ = require('gulp-load-plugins')();
 var pkg = require('./package.json');
 
@@ -20,7 +21,20 @@ gulp.task('build', function() {
         .pipe($.uglify())
         .pipe($.header(banner, { pkg: pkg }))
         .pipe($.rename({ extname: '.min.js' }))
-        .pipe(gulp.dest('dist'))
+        .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['build']);
+gulp.task('js-watch', ['build'], function (done) {
+    browserSync.reload();
+    done();
+});
+
+gulp.task('serve', ['build'], function() {
+    browserSync.init({
+        server: {
+            baseDir: "./"
+        }
+    });
+
+    gulp.watch("src/**/*.js", ['js-watch']);
+});

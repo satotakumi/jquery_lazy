@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "gulp build",
-    "prepublish": "npm run clean && npm run build"
+    "start": "gulp serve",
+    "build": "npm run clean && gulp build",
+    "watch": "gulp watch"
   },
   "repository": {
     "type": "git",
@@ -19,10 +20,12 @@
   },
   "homepage": "https://github.com/sotayamashita/jquery_lazy#readme",
   "devDependencies": {
+    "browser-sync": "^2.14.0",
     "gulp": "^3.9.1",
     "gulp-header": "^1.8.7",
     "gulp-load-plugins": "^1.2.4",
     "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^2.0.0"
+    "gulp-uglify": "^2.0.0",
+    "rimraf": "^2.5.4"
   }
 }
