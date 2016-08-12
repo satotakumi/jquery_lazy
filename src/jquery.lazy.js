@@ -1,7 +1,7 @@
 +(function($, window, document) { "use strict";
     var $window = $(window);
 
-    $.fn.lazy = function(options) {
+    $.fn.lazy = function() {
         var elements = this;
 
         $window.on("resize", function() {
@@ -20,17 +20,18 @@
             var self = this;
             var $self = $(self);
 
-            self.requested = false;
+            self.loaded = false;
 
             $self.one("appear", function() {
-                if (!this.requested) {
+                if (!this.loaded) {
                     // TODO: after appear
-                    self.requested = true;
+                    console.log('hello');
+                    self.loaded = true;
                 }
             });
 
             $self.on("scroll", function() {
-                if (!self.requested) {
+                if (!self.loaded) {
                     $self.trigger("appear");
                 }
             });
@@ -39,8 +40,12 @@
         function update() {
             elements.each(function() {
                 var $this = $(this);
-                // TODO: Write someting
-            })
+                var scrollTop = ( $window.scrollTop() + $window.innerHeight() );
+                var elementOffsetTop = $this.get(0).offsetTop;
+                if (scrollTop >= elementOffsetTop) {
+                  $this.trigger("appear");
+                }
+            });
         }
 
         return this;
