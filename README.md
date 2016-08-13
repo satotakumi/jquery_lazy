@@ -20,6 +20,17 @@ $('.target').lazy(function(el) {
 });
 ```
 
+## API
+
+```javascript
+.lazy( handler )
+```
+
+**handler**
+Type: function
+A function to execute when the _target_ passed.
+
+
 ## Example
 
 **Request**:
