@@ -1,19 +1,19 @@
 +(function($, window, document) { "use strict";
     var $window = $(window);
 
-    $.fn.lazy = function() {
+    $.fn.lazy = function(fn) {
         var elements = this;
 
         $window.on("resize", function() {
-            update();
+            __update();
         });
 
         $(document).ready(function() {
-            update();
+            __update();
         });
 
         $window.on("scroll", function() {
-            update();
+            __update();
         });
 
         this.each(function() {
@@ -24,8 +24,7 @@
 
             $self.one("appear", function() {
                 if (!this.loaded) {
-                    // TODO: after appear
-                    console.log('hello');
+                    fn(self);
                     self.loaded = true;
                 }
             });
@@ -37,7 +36,7 @@
             });
         });
 
-        function update() {
+        function __update() {
             elements.each(function() {
                 var $this = $(this);
                 var scrollTop = ( $window.scrollTop() + $window.innerHeight() );
