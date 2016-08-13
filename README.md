@@ -1,5 +1,11 @@
 # Lazy Plugin for jQuery
 
+## Install
+
+```javascript
+npm install sotayamashita/jquery_lazy --save-dev
+```
+
 ## Usage
 
 ```javascript
@@ -8,7 +14,9 @@
 ```
 
 ```javascript
-$('.target').lazy()
+$('.target').lazy(function(el) {
+  console.log(el);
+});
 ```
 
 ## License

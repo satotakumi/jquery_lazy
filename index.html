@@ -15,6 +15,20 @@
       font-family: -apple-system,BlinkMacSystemFont,Helvetica neue,Helvetica,Hiragino Sans,Meiryo,sans-serif;
     }
 
+    header {
+      padding: 1.7778rem 0;
+      margin-bottom: 1.7778rem;
+      width: 400px;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      color: #559df4;
+      font-weight: 200;
+      padding-top: 20px;
+      margin-bottom: 40px;
+    }
+
     .wrapper {
       display: flex;
       align-items: center;
@@ -27,48 +41,61 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 500px;
-      width: 500px;
+      width: 100%;
+      font-weight: 200;
     }
 
     .content {
-      background: #bdbdbd;
-      border: 1px dashed #dadada;
+      background: #559df4;
+      border: 1px dashed #559df4;
       color: #fff;
-      font-weight: bold;
     }
 
     .blank {
       border: 1px dashed #dadada;
       color: #dadada;
-      font-weight: bold;
+    }
+
+    .container {
+      width: 400px;
+      margin: 0 auto;
+    }
+
+    .container .content,
+    .container .blank {
+      height: 400px;
     }
   </style>
 </head>
 <body>
-  <div class="wrapper">
-    <div class="content">Content</div>
+  <header class="container">
+    <h1>Lazy</h1>
+  </header>
+  <div class="wrapper container">
+    <div class="content">content</div>
     <div class="blank"><span>blank</span></div>
-    <div class="content">Content</div>
+    <div class="content">content</div>
     <div class="blank"><span>blank</span></div>
-    <div class="content">Content</div>
+    <div class="content">content</div>
     <div class="blank"><span>blank</span></div>
-    <div class="content">Content</div>
+    <div class="content">content</div>
     <div class="blank"><span>blank</span></div>
-    <div class="content">Content</div>
+    <div class="content">content</div>
     <div class="blank"><span>blank</span></div>
-    <div class="content">Content</div>
+    <div class="content">content</div>
     <div class="blank"><span>blank</span></div>
-    <div class="content">Content</div>
+    <div class="content">content</div>
     <div class="blank"><span>blank</span></div>
-    <div class="content">Content</div>
+    <div class="content">content</div>
     <div class="blank"><span>blank</span></div>
-    <div class="content">Content</div>
+    <div class="content">content</div>
   </div>
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script type="text/javascript" src="dist/jquery.lazy.min.js"></script>
   <script>
-    $('.content').lazy();
+    $('.content').lazy(function(el) {
+      console.log(el);
+    });
   </script>
 </body>
 </html>
