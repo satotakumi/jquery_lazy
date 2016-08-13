@@ -6,6 +6,7 @@
 npm install sotayamashita/jquery_lazy --save-dev
 ```
 
+
 ## Usage
 
 ```javascript
@@ -18,6 +19,24 @@ $('.target').lazy(function(el) {
   console.log(el);
 });
 ```
+
+## Example
+
+**Request**:
+
+```javascript
+$('.target').lazy(function(el) {
+  var id = $(el).attr('data-id');
+  $.ajax({
+      type: 'POST',
+      url: '/send',
+      data: {
+        id: id
+      }
+  });
+})
+```
+
 
 ## License
 
