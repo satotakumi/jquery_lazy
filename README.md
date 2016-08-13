@@ -26,8 +26,8 @@ $('.target').lazy(function(el) {
 .lazy( handler )
 ```
 
-**handler**
-Type: function
+**handler**  
+Type: function  
 A function to execute when the _target_ passed.
 
 
