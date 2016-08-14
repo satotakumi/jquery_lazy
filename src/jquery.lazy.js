@@ -3,17 +3,14 @@
 
     $.fn.lazy = function(fn) {
         var elements = this;
-
-        $window.on("resize", function() {
-            __update();
-        });
+        var evetName = "triggerEvent";
 
         $(document).ready(function() {
-            __update();
+            update();
         });
 
-        $window.on("scroll", function() {
-            __update();
+        $window.on("scroll resize", function() {
+            update();
         });
 
         this.each(function() {
@@ -22,7 +19,7 @@
 
             self.loaded = false;
 
-            $self.one("appear", function() {
+            $self.one(evetName, function() {
                 if (!this.loaded) {
                     fn(self);
                     self.loaded = true;
@@ -31,18 +28,18 @@
 
             $self.on("scroll", function() {
                 if (!self.loaded) {
-                    $self.trigger("appear");
+                    $self.trigger(evetName);
                 }
             });
         });
 
-        function __update() {
+        function update() {
             elements.each(function() {
                 var $this = $(this);
-                var scrollTop = ( $window.scrollTop() + $window.innerHeight() );
+                var scrollTop = ($window.scrollTop() + $window.innerHeight());
                 var elementOffsetTop = $this.get(0).offsetTop;
                 if (scrollTop >= elementOffsetTop) {
-                  $this.trigger("appear");
+                    $this.trigger(evetName);
                 }
             });
         }
