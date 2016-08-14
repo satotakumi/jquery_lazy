@@ -23,12 +23,12 @@ $('.target').lazy(function(el) {
 ## API
 
 ```javascript
-.lazy( handler )
+$('.target').lazy( handler )
 ```
 
 **handler**  
 Type: function  
-A function to execute when the _target_ passed.
+A function to execute when the `$('.target')` passed.
 
 
 ## Example
