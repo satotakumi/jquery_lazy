@@ -8,7 +8,8 @@
     "start": "gulp serve",
     "build": "npm run clean && gulp build",
     "watch": "gulp watch",
-    "deploy": "npm run build && gulp minify-html && gulp deploy && rimraf .tmp"
+    "deploy": "npm run build && gulp minify-html && gulp deploy && rimraf .tmp",
+    "prepublish": "npm run clean && npm run build"
   },
   "repository": {
     "type": "git",
